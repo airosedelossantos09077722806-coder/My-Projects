@@ -22,11 +22,7 @@ void loop() {
     char message[32] = "";
     radio.read(&message, sizeof(message));
 
-    Serial.print("Received: ");
-    Serial.println(message);
-
     if (strcmp(message, "Warning: Hot!") == 0) {
-      Serial.println("ALERT: Heat detected from transmitter!");
       for (int i = 0; i < 5; i++) {
         digitalWrite(LED_PIN, HIGH);
         delay(200);
